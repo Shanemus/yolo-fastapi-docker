@@ -2,7 +2,7 @@ FROM python:3.11-slim
 
 WORKDIR /app
 
-# Added libgl1 to fix the OpenCV libGL.so.1 missing error
+
 RUN apt-get update && apt-get install -y --no-install-recommends \
     libgl1 \
     libglib2.0-0 \

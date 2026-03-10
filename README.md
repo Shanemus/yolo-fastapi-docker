@@ -102,6 +102,7 @@ uvicorn app.main:app --reload
 Open the interactive documentation:
 
 http://127.0.0.1:8000/docs
+
 **Run with Docker**
 
 Build the Docker image:
@@ -115,6 +116,7 @@ docker run -p 8000:8000 yolo-api
 Open:
 
 http://127.0.0.1:8000/docs
+
 **Example Use Cases**
 
 AI inference APIs
@@ -130,6 +132,7 @@ Rapid prototyping for AI systems
 Author
 
 Shan E Mustafa
+
 Computer Vision / Machine Learning Engineer
 
 

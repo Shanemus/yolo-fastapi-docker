@@ -1,57 +1,65 @@
-**YOLOv8 Object Detection API**
+# YOLOv8 Object Detection API
 
-This project provides a REST API for object detection using YOLOv8, built with FastAPI and containerized using Docker.
+This project provides a **REST API for object detection using YOLOv8**, built with **FastAPI** and containerized using **Docker**.
 
-The API accepts an image upload and returns structured JSON detection results, including:
+The API supports two types of inference outputs:
 
-1. detected object classes
+* **Structured JSON results** (for developers and integrations)
+* **Annotated images with bounding boxes** (for visualization and client applications)
 
-2. confidence scores
+The service is deployed in the cloud and accessible through an **interactive API documentation interface**.
 
-3. bounding box coordinates
+---
 
-The service is deployed in the cloud and can be accessed through an interactive API documentation interface.
+# Features
 
-**Features**
+* YOLOv8 object detection
+* FastAPI REST API
+* Image upload endpoint
+* JSON detection output
+* Annotated image output with bounding boxes
+* Docker containerization
+* Cloud deployment using Render
 
-YOLOv8 object detection
+---
 
-FastAPI REST API
-
-Image upload endpoint
-
-JSON detection output
-
-Docker containerization
-
-Cloud deployment using Render
-
-**Live Demo**
+# Live Demo
 
 Interactive API documentation:
 
+```
 https://yolo-fastapi-docker.onrender.com/docs
+```
 
-You can upload an image directly in the Swagger interface and receive detection results.
+You can upload an image directly in the Swagger interface and test both endpoints.
 
-**API Endpoints**
+---
 
-1. Health Check
-GET /health
+# API Endpoints
+
+## Health Check
+
+`GET /health`
 
 Returns:
 
+```json
 {
   "status": "ok"
 }
+```
 
-2. Object Detection
-POST /predict
+---
 
-Upload an image and receive detection results.
+# Object Detection (JSON Output)
+
+`POST /predict`
+
+Upload an image and receive structured detection results.
 
 Example response:
 
+```json
 {
   "latency_seconds": 0.17,
   "num_detections": 1,
@@ -64,76 +72,125 @@ Example response:
     }
   ]
 }
+```
 
-**Tech Stack**
+This endpoint is useful for:
 
-Python
+* AI pipelines
+* data processing systems
+* machine learning integrations
 
-FastAPI
+---
 
-PyTorch (CPU version)
+# Object Detection (Annotated Image)
 
-YOLOv8 (Ultralytics)
+`POST /predict/image`
 
-OpenCV
+Upload an image and receive the **predicted image with bounding boxes and labels drawn on it**.
 
-Docker
+Response type:
 
-Render (Cloud deployment)
+```
+image/jpeg
+```
 
-**Run Locally**
+Example result:
+
+```
+Original image → YOLO detection → Annotated image returned
+```
+
+This endpoint is useful for:
+
+* visualization
+* demos
+* user-facing AI applications
+* computer vision dashboards
+
+---
+
+# Tech Stack
+
+* Python
+* FastAPI
+* PyTorch (CPU)
+* YOLOv8 (Ultralytics)
+* OpenCV
+* Docker
+* Render (Cloud deployment)
+
+---
+
+# Run Locally
 
 Clone the repository:
 
-git clone https://github.com/YOUR_USERNAME/yolo-api-project.git
+```bash
+git clone https://github.com/shanemus/yolo-api-project.git
+```
 
 Navigate to the project folder:
 
+```bash
 cd yolo-api-project
+```
 
 Install dependencies:
 
+```bash
 pip install -r requirements.txt
+```
 
 Run the API server:
 
+```bash
 uvicorn app.main:app --reload
+```
 
-Open the interactive documentation:
+Open the documentation:
 
+```
 http://127.0.0.1:8000/docs
+```
 
-**Run with Docker**
+---
+
+# Run with Docker
 
 Build the Docker image:
 
+```bash
 docker build -t yolo-api .
+```
 
 Run the container:
 
+```bash
 docker run -p 8000:8000 yolo-api
+```
 
 Open:
 
+```
 http://127.0.0.1:8000/docs
+```
 
-**Example Use Cases**
+---
 
-AI inference APIs
+# Example Use Cases
 
-Object detection services
+* AI inference APIs
+* Object detection services
+* Computer vision applications
+* Machine learning deployment pipelines
+* AI product prototypes
 
-Computer vision applications
+---
 
-Machine learning deployment pipelines
+# Author
 
-Rapid prototyping for AI systems
-
-Author
-
-Shan E Mustafa
+**Shan E Mustafa**
 
 Computer Vision / Machine Learning Engineer
-
 
 
